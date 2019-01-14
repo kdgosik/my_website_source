@@ -16,7 +16,7 @@ item:
   title: Blockchain for Business - An Introduction to Hyperledger Technologies
 - certificate_url: https://www.datacamp.com
   date_end: ""
-  date_start: ""
+  date_start: "2018-08-01"
   description: ""
   organization: DataCamp
   title: ""

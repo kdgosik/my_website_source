@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Homes on Personal Website of Kirk Gosik</title>
+    <title>Homes on Kirk Gosik</title>
     <link>https://kdgosik.netlify.com/home/</link>
-    <description>Recent content in Homes on Personal Website of Kirk Gosik</description>
+    <description>Recent content in Homes on Kirk Gosik</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
@@ -19,15 +19,6 @@
       
       <guid>https://kdgosik.netlify.com/home/hero_carousel/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Academic</title>
-      <link>https://kdgosik.netlify.com/home/hero/</link>
-      <pubDate>Sun, 15 Oct 2017 00:00:00 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/home/hero/</guid>
-      <description>The highly flexible website framework for Hugo with an extensible plugin mechanism. Create a beautifully simple site in under 10 minutes 🚀 Latest release   Star</description>
     </item>
     
     <item>
