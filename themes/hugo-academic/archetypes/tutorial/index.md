@@ -1,0 +1,11 @@
++++
+date = {{ .Date }}
+draft = false
+linktitle = "{{ replace .Name "-" " " | title }}"
+[menu.tutorial]
+  parent = "YourParentID"
+  weight = 1
+title = "{{ replace .Name "-" " " | title }}"
+toc = true
+type = "docs"  # Do not modify.
++++

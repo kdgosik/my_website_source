@@ -1,6 +1,6 @@
 +++
-title = "My Tutorial"
-date = 2019-02-15T12:55:48-05:00
+title = "{{ replace .Name "-" " " | title }}"
+date = {{ .Date }}
 draft = false
 
 # Tags and categories

@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>https://kdgosik.netlify.com/tutorial/2019-02-16-journal_club_saucie/</loc>
+      <lastmod>2019-02-16T10:38:18-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://kdgosik.netlify.com/tutorial/my-tutorial/</loc>
       <lastmod>2019-02-15T12:55:48-05:00</lastmod>
     </url>
@@ -246,15 +254,6 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/tags/autoencoder/</loc>
-      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://kdgosik.netlify.com/tags/ggplot/</loc>
       <lastmod>2019-02-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -266,24 +265,6 @@
     
       <loc>https://kdgosik.netlify.com/tags/plot/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/tags/python/</loc>
-      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/categories/python/</loc>
-      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
       <priority>0</priority>
     </url>
     

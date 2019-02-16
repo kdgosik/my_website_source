@@ -7,11 +7,11 @@
 [Reference](https://gohugo.io/documentation/)
 
 ```
-hugo new --kind post <post>/<yyyy-mm-dd>-<new_post_name>
+hugo new --kind post post/<yyyy-mm-dd>-<new_post_name>
 
 ## or
 
-hugo new --kind tutorial <tutorial>/<yyyy-mm-dd>-<new_post_name>
+hugo new --kind tutorial tutorial/<yyyy-mm-dd>-<new_post_name>
 ```
   - Run above command to generate <yyyy-mm-dd>-<new_post_name>.md file
   - Edit <yyyy-mm-dd>-<new_post_name>.md file to make your tutorial or blog
@@ -40,11 +40,11 @@ blogdown::new_post("new title")
 [Reference](https://sourcethemes.com/academic/docs/jupyter/)
 
 ```
-hugo new --kind post <post>/<yyyy-mm-dd>-<new_post_name>
+hugo new post/<new_post_name>
 
 ## or
 
-hugo new --kind tutorial <tutorial>/<yyyy-mm-dd>-<new_post_name>
+hugo new tutorial/<new_post_name>
 
 cd content/<post|tutorial>/<yyyy-mm-dd>-<new_post_name>
 
