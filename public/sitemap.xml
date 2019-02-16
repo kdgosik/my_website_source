@@ -4,6 +4,30 @@
     
     <url>
     
+      <loc>https://kdgosik.netlify.com/tutorial/my-tutorial/</loc>
+      <lastmod>2019-02-15T12:55:48-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/tutorial/journal_club/</loc>
+      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/post/r-markdown-hello/</loc>
+      <lastmod>2019-02-15T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://kdgosik.netlify.com/tutorial/example/</loc>
       <lastmod>2018-09-09T00:00:00-04:00</lastmod>
     </url>
@@ -181,7 +205,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/categories/r/</loc>
-      <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+      <lastmod>2019-02-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -222,6 +246,24 @@
     
     <url>
     
+      <loc>https://kdgosik.netlify.com/tags/autoencoder/</loc>
+      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/tags/ggplot/</loc>
+      <lastmod>2019-02-15T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://kdgosik.netlify.com/tags/plot/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
       <priority>0</priority>
@@ -231,8 +273,26 @@
     
     <url>
     
+      <loc>https://kdgosik.netlify.com/tags/python/</loc>
+      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/categories/python/</loc>
+      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://kdgosik.netlify.com/tags/regression/</loc>
-      <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+      <lastmod>2019-02-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

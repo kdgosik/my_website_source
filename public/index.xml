@@ -11,6 +11,500 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>My Tutorial</title>
+      <link>https://kdgosik.netlify.com/tutorial/my-tutorial/</link>
+      <pubDate>Fri, 15 Feb 2019 12:55:48 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tutorial/my-tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Journal Club</title>
+      <link>https://kdgosik.netlify.com/tutorial/journal_club/</link>
+      <pubDate>Fri, 15 Feb 2019 10:14:45 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tutorial/journal_club/</guid>
+      <description>
+
+&lt;h2 id=&#34;saucie-journal-club&#34;&gt;SAUCIE Journal Club&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.krishnaswamylab.org/projects/saucie/&#34; target=&#34;_blank&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.biorxiv.org/content/biorxiv/early/2019/01/03/237065.full.pdf&#34; target=&#34;_blank&#34;&gt;Biorxiv&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Exploring Single-Cell Data with Deep Multitasking Neural Networks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Preivew of the paper on biorxiv.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/kdgosik/my_website_source/master/static/img/SAUCIE_ScreenShot.png&#34; alt=&#34;saucie&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+
+&lt;p&gt;Our unsupervised architecture, called SAUCIE (Sparse Autoencoder for Unsupervised Clustering, Imputation, and Embedding), simultaneously performs several key tasks for single-cell data analysis including 1) clustering, 2) batch correction, 3) visualization, and 4) denoising/imputation. SAUCIE is trained to recreate its own input after reducing its dimensionality in a 2-D embedding layer which can be used to visualize the data.&lt;/p&gt;
+
+&lt;p&gt;Additionally, SAUCIE uses two novel regularizations: (1) an information dimension regularization to penalize entropy as computed on normalized activation values of the layer, and thereby encourage binary-like encodings that are amenable to clustering and (2) a Maximal Mean Discrepancy penalty to correct batch effects. Thus SAUCIE has a single architecture that denoises, batch-corrects, visualizes and clusters data using a unified representation. We show results on artificial data where ground truth is known, as well as mass cytometry data from dengue patients, and single-cell RNA-sequencing data from embryonic mouse brain.&lt;/p&gt;
+
+&lt;h4 id=&#34;architecture&#34;&gt;Architecture&lt;/h4&gt;
+
+&lt;p&gt;SAUCIE consists of three encoding layers, an embedding layer, and then three decoding layers.&lt;/p&gt;
+
+&lt;h4 id=&#34;training&#34;&gt;Training&lt;/h4&gt;
+
+&lt;p&gt;To perform multiple tasks, SAUCIE uses a single architecture as described above, but is run
+and optimized sequentially. The first run imputes noisy values and corrects batch effects in the
+original data. This preprocessed data is then run through SAUCIE again to obtain a visualization
+and to pick out clusters.&lt;/p&gt;
+
+&lt;p&gt;The loss function of all runs starts with a reconstruction loss Lr forcing the autoencoder to
+learn to reconstruct its input at the end. SAUCIE uses the standard mean-squared error loss (i.e.,&lt;/p&gt;
+
+&lt;p&gt;$$L&lt;em&gt;{r}(X, \hat{X}) = \frac{1}{n}\Sigma^{n}&lt;/em&gt;{i=1}||x&lt;em&gt;i − \hat{x&lt;/em&gt;{i}}||^2$$&lt;/p&gt;
+
+&lt;h3 id=&#34;four-key-tasks&#34;&gt;Four key tasks:&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;visualization and dimensionality reduction,&lt;/li&gt;
+&lt;li&gt;batch correction,&lt;/li&gt;
+&lt;li&gt;clustering, and&lt;/li&gt;
+&lt;li&gt;denoising and imputation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/kdgosik/my_website_source/blob/master/static/img/SAUCIE_ScreenShot2.png?raw=true&#34; alt=&#34;SAUCIE_ScreenShot2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;#### Visualization/Dimensionality Reduction&lt;/p&gt;
+
+&lt;p&gt;2-D bottleneck used as embeddings for visualization.&lt;/p&gt;
+
+&lt;p&gt;This regularization is computed from the visualization layer to ensure consistency across subsampled batches. The resulting total loss is then,
+$$ L = L_r(X, \hat{X}) + \lambda_b · L_b(V )$$&lt;/p&gt;
+
+&lt;h4 id=&#34;batch-correction&#34;&gt;Batch Correction&lt;/h4&gt;
+
+&lt;p&gt;(page13-14, 22 and 26-27)&lt;/p&gt;
+
+&lt;p&gt;The batch correction term $L_b$ calculates the Maximal Mean Discrepancy (MMD) between batches, as&lt;/p&gt;
+
+&lt;p&gt;$$L&lt;em&gt;b = \Sigma&lt;/em&gt;{i\neq{ref}}MMD(V_{ref} , V_i),$$&lt;/p&gt;
+
+&lt;p&gt;where $V_{ref}$ is the visualization layer of one of the replicates, arbitrarily chosen to be considered as a reference batch&lt;/p&gt;
+
+&lt;h4 id=&#34;clustering&#34;&gt;Clustering&lt;/h4&gt;
+
+&lt;p&gt;(page 27)&lt;/p&gt;
+
+&lt;p&gt;The loss function of the clustering run then optimizes $L_r$ along with two regularization terms $L_c$ and $L_d$ that together enable SAUCIE to learn clusters:&lt;/p&gt;
+
+&lt;p&gt;$$L = L_r(\hat{X}, \tilde{X}) + \lambda_c · L_c(B) + \lambda_d · L_d(B, \hat{X})$$&lt;/p&gt;
+
+&lt;p&gt;The two regularizations $\lambda_d$ and $\lambda_c$ affect the number of clusters that result. For a given value
+of $\lambda_d$, as $\lambda_c$ increases, the number of clusters decreases (coarser granularity). Higher values of $\lambda_d$ yield more clusters (finer granularity). Notably, these results are robust and yield reasonable
+results for varying values of the two regularizations.&lt;/p&gt;
+
+&lt;h4 id=&#34;denoising-imputation&#34;&gt;Denoising/Imputation&lt;/h4&gt;
+
+&lt;h3 id=&#34;download-code&#34;&gt;Download Code&lt;/h3&gt;
+
+&lt;p&gt;There is not packages to install.  It is tensorflow code that is on the github page for the lab.  You are able to download a zip file of the repository and save it to a directory called code.  We will reference this for the functions to run SAUCIE.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Get code from github and download to code directory
+!mkdir code
+!wget https://github.com/KrishnaswamyLab/SAUCIE/archive/master.zip -O code/master.zip
+!cd code; unzip master.zip
+!cd ..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;download-10x-pbmc-data&#34;&gt;Download 10x PBMC data&lt;/h3&gt;
+
+&lt;p&gt;We will use the PBMC data from the 10x website as our test data.  You can download this and place it in a directory called data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;!mkdir data
+!wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
+!cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
+!cd ..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;requirements&#34;&gt;Requirements&lt;/h3&gt;
+
+&lt;p&gt;You will also need to have the following python modules installed to run this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Python3
+scanpy
+louvain
+tensorflow 1.4.0
+numpy 1.13.3
+scipy 1.1.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; all requirements automatically satisfied in colab.research.google.com except for scanpy and louvain.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%%time
+## this takes about 5 minutes
+## installing scanpy and louvain
+!pip install scanpy louvain
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/usr/python3
+
+import scanpy.api as sc
+import numpy as np
+import pandas as pd
+import scipy.io
+import sys
+
+## switch to code path to load module
+sys.path.insert(0, &#39;code/SAUCIE-master&#39;)
+
+from model import SAUCIE
+from loader import Loader
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;adata = sc.read_10x_mtx(
+    &#39;./data/filtered_gene_bc_matrices/hg19/&#39;,  # the directory with the `.mtx` file
+    var_names=&#39;gene_symbols&#39;)                  # use gene symbols for the variable names (variables-axis index)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## checking shape of data
+adata.X
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## transform to numpy array for running the model
+## cells by genes
+
+data_np = adata.X.toarray()
+initial_index = adata.obs.index
+gene_names = adata.var_names
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## making sure shape is the same
+data_np.shape
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;scanpy-seurat-tutorial-of-pbmc&#34;&gt;Scanpy/Seurat Tutorial of PBMC&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html&#34; target=&#34;_blank&#34;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;preprocess&#34;&gt;Preprocess&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;adata.var_names_make_unique()  # this is unnecessary if using &#39;gene_ids&#39;
+
+# basic filtering
+sc.pp.filter_cells(adata, min_genes=200)
+sc.pp.filter_genes(adata, min_cells=3)
+
+
+# identifying mito genes
+mito_genes = adata.var_names.str.startswith(&#39;MT-&#39;)
+# for each cell compute fraction of counts in mito genes vs. all genes
+# the `.A1` is only necessary as X is sparse (to transform to a dense array after summing)
+adata.obs[&#39;percent_mito&#39;] = np.sum(
+    adata[:, mito_genes].X, axis=1).A1 / np.sum(adata.X, axis=1).A1
+# add the total counts per cell as observations-annotation to adata
+adata.obs[&#39;n_counts&#39;] = adata.X.sum(axis=1).A1
+
+## filtering out lowly expressed genes
+adata = adata[adata.obs[&#39;n_genes&#39;] &amp;lt; 2500, :]
+adata = adata[adata.obs[&#39;percent_mito&#39;] &amp;lt; 0.05, :]
+
+## normalize data
+sc.pp.normalize_per_cell(adata, counts_per_cell_after=1e4)
+sc.pp.log1p(adata)
+
+adata.raw = adata
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## identifying and filtering to highly variable genes
+sc.pp.highly_variable_genes(adata, min_mean=0.0125, max_mean=3, min_disp=0.5)
+adata = adata[:, adata.var[&#39;highly_variable&#39;]]
+
+## regressing out umi and mito
+sc.pp.regress_out(adata, [&#39;n_counts&#39;, &#39;percent_mito&#39;])
+
+## scaling gene expressiong data
+sc.pp.scale(adata, max_value=10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;pca&#34;&gt;PCA&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.tl.pca(adata, svd_solver=&#39;arpack&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;neighborhood-graph&#34;&gt;Neighborhood Graph&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cluster&#34;&gt;Cluster&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.tl.louvain(adata)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.tl.paga(adata)
+sc.pl.paga(adata, plot=False)  # remove `plot=False` if you want to see the coarse-grained graph
+sc.tl.umap(adata, init_pos=&#39;paga&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;identify-cell-types&#34;&gt;Identify Cell Types&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;
+new_cluster_names = [
+    &#39;CD4 T&#39;, &#39;CD14+ Monocytes&#39;,
+    &#39;B&#39;, &#39;CD8 T&#39;,
+    &#39;NK&#39;, &#39;FCGR3A+ Monocytes&#39;,
+    &#39;Dendritic&#39;, &#39;Megakaryocytes&#39;]
+adata.rename_categories(&#39;louvain&#39;, new_cluster_names)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## Plotting with UMAP
+sc.pl.umap(adata, color = &#39;louvain&#39;, legend_loc = &#39;on data&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;saucie&#34;&gt;SAUCIE&lt;/h2&gt;
+
+&lt;h3 id=&#34;input-parameters&#34;&gt;Input Parameters&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;
+SAUCIE(input_dim,
+        lambda_b=0,
+        lambda_c=0,
+        layer_c=0,
+        lambda_d=0,
+        layers=[512,256,128,2],
+        activation=lrelu,
+        learning_rate=.001,
+        restore_folder=&#39;&#39;,
+        save_folder=&#39;&#39;,
+        limit_gpu_fraction=.3,
+        no_gpu=False):
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;    &amp;quot;&amp;quot;&amp;quot;
+    The SAUCIE model.
+    :param input_dim: the dimensionality of the data
+    :param lambda_b: the coefficient for the MMD regularization
+    :param lambda_c: the coefficient for the ID regularization
+    :param layer_c: the index of layer_dimensions that ID regularization should be applied to (usually len(layer_dimensions)-2)
+    :param lambda_d: the coefficient for the intracluster distance regularization
+    :param activation: the nonlinearity to use in the hidden layers
+    :param loss: the loss function to use, one of &#39;mse&#39; or &#39;bce&#39;
+    :param learning_rate: the learning_rate to use while training
+    :param restore_folder: string of the directory where a previous model is saved, if present will return a new Python object with the old SAUCIE tensorflow graph
+    :param save_folder: string of the directory to save SAUCIE to by default when save() is called)
+    &amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;training-on-pbmc-data&#34;&gt;Training on PBMC Data&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;%%time
+## takes about 35 minutes on just CPU runtime at 1000 steps
+## takes less than 1 minutes with GPU runtime at 1000 steps. scales linearly, eg. 10000 steps ~ 10 minutes
+
+## https://github.com/KrishnaswamyLab/SAUCIE#usage
+saucie = SAUCIE(input_dim = data_np.shape[1],
+                lambda_b=0, # default: 0
+                lambda_c=0, # default: 0
+                layer_c=0, # default: 0
+                lambda_d=0, # default: 0
+                layers=[512,256,128,2], # default: [512,256,128,2]
+                activation=&#39;lrelu&#39;, # default: lrelu
+                learning_rate=.001, # defaul: .001
+                restore_folder=&#39;&#39;, # defaul: &#39;&#39;
+                save_folder=&#39;&#39;, # default: &#39;&#39;
+                limit_gpu_fraction=.3, # default .3
+                no_gpu=False) # default: False
+loadtrain = Loader(data_np, shuffle=True)
+saucie.train(loadtrain, steps=1000)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;loading-output&#34;&gt;Loading Output&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;## Load results
+loadeval = Loader(data_np, shuffle=False)
+embedding = saucie.get_embedding(loadeval)
+number_of_clusters, clusters = saucie.get_clusters(loadeval)
+reconstruction = saucie.get_reconstruction(loadeval)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When creating this notebook and keeping the parameter settings the same, I go several different number of clusters each time.  This ranged from 1 cluster, the full dataset, up to 9 clusters.  It seems to be very inconsistent with how many clusters it chooses.  You can try and use the reqularization parameters to help with the tuning and selecting of clusters.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Joining Embeddings from model
+adata.obs = adata.obs.join(pd.DataFrame(embedding, index = initial_index, columns =[&#39;SAUCIE1&#39;, &#39;SAUCIE2&#39;]))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## make cluster an integer value
+clusters = [int(c) for c in clusters]
+
+## Joining Cluster labels
+adata.obs = adata.obs.join(pd.DataFrame(clusters, index = initial_index, columns = [&#39;SAUCIE_Cluster&#39;], dtype = &#39;category&#39;))
+
+## gives an error related to pandas.  Does not effect any of the output.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;adata.obs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## getting the reconstruction (imputed/denoised) data
+reconstruction_df = adata.obs.join(pd.DataFrame(reconstruction, index = initial_index, columns = gene_names), how=&#39;left&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## only selecting the highly variable genes that were chosen from above
+reconstruction_df = reconstruction_df[adata.var_names]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## checking shape matches
+reconstruction_df.shape
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## checking shape matches
+adata.X.shape
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## storing the reconstructiong values in the adata layers and naming it SAUCIE
+adata.layers[&#39;SAUCIE&#39;] = reconstruction_df.values
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;second-round&#34;&gt;Second Round&lt;/h4&gt;
+
+&lt;p&gt;(page 29)&lt;/p&gt;
+
+&lt;p&gt;To perform multiple tasks, SAUCIE uses a single architecture as described above, but is run and optimized sequentially. The first run imputes noisy values and corrects batch effects in the original data. This preprocessed data is then run through SAUCIE again to obtain a visualization and to pick out clusters.&lt;/p&gt;
+
+&lt;p&gt;This goes through the same steps above but adding the suffix &amp;lsquo;_recon&amp;rsquo; to differentiate between the two outputs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## https://github.com/KrishnaswamyLab/SAUCIE#usage
+saucie_recon = SAUCIE(input_dim = reconstruction.shape[1],
+                lambda_b=0, # default: 0
+                lambda_c=0, # default: 0
+                layer_c=0, # default: 0
+                lambda_d=0, # default: 0
+                layers=[512,256,128,2], # default: [512,256,128,2]
+                activation=&#39;lrelu&#39;, # default: lrelu
+                learning_rate=.001, # defaul: .001
+                restore_folder=&#39;&#39;, # defaul: &#39;&#39;
+                save_folder=&#39;&#39;, # default: &#39;&#39;
+                limit_gpu_fraction=.3, # default .3
+                no_gpu=False) # default: False
+loadtrain_recon = Loader(reconstruction, shuffle=True)
+saucie_recon.train(loadtrain_recon, steps=1000)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## Load results
+loadeval_recon = Loader(reconstruction, shuffle=False)
+embedding_recon = saucie_recon.get_embedding(loadeval_recon)
+number_of_clusters_recon, clusters_recon = saucie_recon.get_clusters(loadeval_recon)
+reconstruction_recon = saucie_recon.get_reconstruction(loadeval_recon)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## Joining Embeddings from model
+adata.obs = adata.obs.join(pd.DataFrame(embedding_recon, index = initial_index, columns =[&#39;SAUCIE1_recon&#39;, &#39;SAUCIE2_recon&#39;]))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## make cluster an integer value
+clusters_recon = [int(c) for c in clusters_recon]
+
+## Joining Cluster labels
+adata.obs = adata.obs.join(pd.DataFrame(clusters_recon, index = initial_index, columns = [&#39;SAUCIE_Cluster_recon&#39;], dtype = &#39;category&#39;))
+
+## gives an error related to pandas.  Does not effect any of the output.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;reconstruction_df = adata.obs.join(pd.DataFrame(reconstruction_recon, index = initial_index, columns = gene_names), how=&#39;left&#39;)
+reconstruction_df = reconstruction_df[adata.var_names]
+adata.layers[&#39;SAUCIE_recon&#39;] = reconstruction_df.values
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;compare-clustering&#34;&gt;Compare Clustering&lt;/h2&gt;
+
+&lt;p&gt;Lots of varying results with the clustering.  This happens to be the latest run.  It seems to be the best of what I have seen so far as well.&lt;/p&gt;
+
+&lt;h3 id=&#34;louvain-labels-vs-saucie-clusters-w-o-imputation&#34;&gt;Louvain Labels vs SAUCIE Clusters (w/o imputation)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;pd.crosstab(adata.obs.louvain, adata.obs.SAUCIE_Cluster)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;louvain-labels-vs-saucie-clusters-using-imputation-as-input&#34;&gt;Louvain Labels vs SAUCIE Clusters using Imputation as input&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;pd.crosstab(adata.obs.louvain, adata.obs.SAUCIE_Cluster_recon)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;saucie-clusters-w-o-imputation-vs-saucie-clusters-w-imputation&#34;&gt;SAUCIE Clusters (w/o imputation) vs SAUCIE Clusters (w imputation)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;pd.crosstab(adata.obs.SAUCIE_Cluster, adata.obs.SAUCIE_Cluster_recon)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;compare-visualizations&#34;&gt;Compare Visualizations&lt;/h2&gt;
+
+&lt;h3 id=&#34;saucie-w-o-imputation&#34;&gt;SAUCIE w/o Imputation&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.pl.scatter(adata, &#39;SAUCIE1&#39;, &#39;SAUCIE2&#39;, color = &#39;SAUCIE_Cluster&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;saucie-w-imputation&#34;&gt;SAUCIE w/ Imputation&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.pl.scatter(adata, &#39;SAUCIE1_recon&#39;, &#39;SAUCIE2_recon&#39;, color = &#39;SAUCIE_Cluster_recon&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;comparing-clusters-on-umap-dimensions&#34;&gt;Comparing Clusters on UMAP Dimensions&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sc.pl.umap(adata, color = [&#39;louvain&#39;, &#39;SAUCIE_Cluster&#39;, &#39;SAUCIE_Cluster_recon&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R Markdown, Hello!</title>
+      <link>https://kdgosik.netlify.com/post/r-markdown-hello/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/post/r-markdown-hello/</guid>
+      <description>
+
+
+&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:ggplot&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+ggplot(cars, aes(speed, dist)) + 
+  geom_point() + 
+  geom_smooth(method=&amp;#39;lm&amp;#39;,formula=y~x)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:ggplot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://kdgosik.netlify.com/post/2019-02-15-r-markdown-hello_files/figure-html/ggplot-1.png&#34; alt=&#34;A ggplot.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A ggplot.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Example Page</title>
       <link>https://kdgosik.netlify.com/tutorial/example/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 -0400</pubDate>

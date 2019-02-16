@@ -13,6 +13,26 @@
     
     
     <item>
+      <title>My Tutorial</title>
+      <link>https://kdgosik.netlify.com/tutorial/my-tutorial/</link>
+      <pubDate>Fri, 15 Feb 2019 12:55:48 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tutorial/my-tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Journal Club</title>
+      <link>https://kdgosik.netlify.com/tutorial/journal_club/</link>
+      <pubDate>Fri, 15 Feb 2019 10:14:45 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tutorial/journal_club/</guid>
+      <description>SAUCIE Journal Club  Reference Biorxiv  Exploring Single-Cell Data with Deep Multitasking Neural Networks
+Preivew of the paper on biorxiv.
+Description Our unsupervised architecture, called SAUCIE (Sparse Autoencoder for Unsupervised Clustering, Imputation, and Embedding), simultaneously performs several key tasks for single-cell data analysis including 1) clustering, 2) batch correction, 3) visualization, and 4) denoising/imputation. SAUCIE is trained to recreate its own input after reducing its dimensionality in a 2-D embedding layer which can be used to visualize the data.</description>
+    </item>
+    
+    <item>
       <title>Example Page</title>
       <link>https://kdgosik.netlify.com/tutorial/example/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 -0400</pubDate>

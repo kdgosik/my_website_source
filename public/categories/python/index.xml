@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Kirk Gosik</title>
+    <link>https://kdgosik.netlify.com/categories/python/</link>
+    <description>Recent content in python on Kirk Gosik</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019</copyright>
+    <lastBuildDate>Fri, 15 Feb 2019 10:14:45 -0500</lastBuildDate>
+    
+	<atom:link href="https://kdgosik.netlify.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Journal Club</title>
+      <link>https://kdgosik.netlify.com/tutorial/journal_club/</link>
+      <pubDate>Fri, 15 Feb 2019 10:14:45 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tutorial/journal_club/</guid>
+      <description>SAUCIE Journal Club  Reference Biorxiv  Exploring Single-Cell Data with Deep Multitasking Neural Networks
+Preivew of the paper on biorxiv.
+Description Our unsupervised architecture, called SAUCIE (Sparse Autoencoder for Unsupervised Clustering, Imputation, and Embedding), simultaneously performs several key tasks for single-cell data analysis including 1) clustering, 2) batch correction, 3) visualization, and 4) denoising/imputation. SAUCIE is trained to recreate its own input after reducing its dimensionality in a 2-D embedding layer which can be used to visualize the data.</description>
+    </item>
+    
+  </channel>
+</rss>
