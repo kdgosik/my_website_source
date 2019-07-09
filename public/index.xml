@@ -11,29 +11,20 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Iform</title>
+      <link>https://kdgosik.netlify.com/publication/iform/</link>
+      <pubDate>Tue, 09 Jul 2019 14:51:22 -0400</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/publication/iform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
-      <link>https://kdgosik.netlify.com/tutorial/2019-02-16-journal_club_saucie/</link>
-      <pubDate>Sat, 16 Feb 2019 10:38:18 -0500</pubDate>
+      <link>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</link>
+      <pubDate>Sat, 16 Feb 2019 11:22:14 -0500</pubDate>
       
-      <guid>https://kdgosik.netlify.com/tutorial/2019-02-16-journal_club_saucie/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My Tutorial</title>
-      <link>https://kdgosik.netlify.com/tutorial/my-tutorial/</link>
-      <pubDate>Fri, 15 Feb 2019 12:55:48 -0500</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tutorial/my-tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Journal Club</title>
-      <link>https://kdgosik.netlify.com/tutorial/journal_club/</link>
-      <pubDate>Fri, 15 Feb 2019 10:14:45 -0500</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tutorial/journal_club/</guid>
+      <guid>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</guid>
       <description>
 
 &lt;h2 id=&#34;saucie-journal-club&#34;&gt;SAUCIE Journal Club&lt;/h2&gt;
@@ -117,21 +108,62 @@ results for varying values of the two regularizations.&lt;/p&gt;
 
 &lt;p&gt;There is not packages to install.  It is tensorflow code that is on the github page for the lab.  You are able to download a zip file of the repository and save it to a directory called code.  We will reference this for the functions to run SAUCIE.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;## Get code from github and download to code directory
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## Get code from github and download to code directory
 !mkdir code
 !wget https://github.com/KrishnaswamyLab/SAUCIE/archive/master.zip -O code/master.zip
 !cd code; unzip master.zip
 !cd ..
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;pre&gt;&lt;code&gt;--2019-02-16 10:45:16--  https://github.com/KrishnaswamyLab/SAUCIE/archive/master.zip
+Resolving github.com... 192.30.253.113, 192.30.253.112
+Connecting to github.com|192.30.253.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/KrishnaswamyLab/SAUCIE/zip/master [following]
+--2019-02-16 10:45:16--  https://codeload.github.com/KrishnaswamyLab/SAUCIE/zip/master
+Resolving codeload.github.com... 192.30.253.120, 192.30.253.121
+Connecting to codeload.github.com|192.30.253.120|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/zip]
+Saving to: ‘code/master.zip’
+
+code/master.zip         [ &amp;lt;=&amp;gt;                ]  12.25K  --.-KB/s    in 0.02s   
+
+2019-02-16 10:45:16 (626 KB/s) - ‘code/master.zip’ saved [12541]
+
+Archive:  master.zip
+c2e59683ddf401f07d4c226a420b367181934715
+   creating: SAUCIE-master/
+  inflating: SAUCIE-master/.gitignore  
+  inflating: SAUCIE-master/README.md  
+  inflating: SAUCIE-master/SAUCIE.py  
+ extracting: SAUCIE-master/__init__.py  
+  inflating: SAUCIE-master/example.py  
+  inflating: SAUCIE-master/loader.py  
+  inflating: SAUCIE-master/model.py  
+  inflating: SAUCIE-master/utils.py  
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&#34;download-10x-pbmc-data&#34;&gt;Download 10x PBMC data&lt;/h3&gt;
 
 &lt;p&gt;We will use the PBMC data from the 10x website as our test data.  You can download this and place it in a directory called data.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;!mkdir data
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;!mkdir data
 !wget https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz -O data/pbmc3k_filtered_gene_bc_matrices.tar.gz
 !cd data; tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
 !cd ..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;--2019-02-16 10:45:19--  https://s3-us-west-2.amazonaws.com/10x.files/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz
+Resolving s3-us-west-2.amazonaws.com... 52.218.209.8
+Connecting to s3-us-west-2.amazonaws.com|52.218.209.8|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7621991 (7.3M) [application/x-tar]
+Saving to: ‘data/pbmc3k_filtered_gene_bc_matrices.tar.gz’
+
+data/pbmc3k_filtere 100%[===================&amp;gt;]   7.27M  3.98MB/s    in 1.8s    
+
+2019-02-16 10:45:21 (3.98 MB/s) - ‘data/pbmc3k_filtered_gene_bc_matrices.tar.gz’ saved [7621991/7621991]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;requirements&#34;&gt;Requirements&lt;/h3&gt;
@@ -148,13 +180,89 @@ scipy 1.1.0
 
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; all requirements automatically satisfied in colab.research.google.com except for scanpy and louvain.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;%%time
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;%%time
 ## this takes about 5 minutes
 ## installing scanpy and louvain
-!pip install scanpy louvain
+!pip install scanpy louvain tensorflow
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;#!/bin/usr/python3
+&lt;pre&gt;&lt;code&gt;Requirement already satisfied: scanpy in /anaconda3/envs/scanpy/lib/python3.6/site-packages (1.4)
+Requirement already satisfied: louvain in /anaconda3/envs/scanpy/lib/python3.6/site-packages (0.6.1)
+Collecting tensorflow
+[?25l  Downloading https://files.pythonhosted.org/packages/81/07/be624c7e0a63b080a76b7f6faf417eecdc5f6480f6a740a8bcf8991bce0b/tensorflow-1.12.0-cp36-cp36m-macosx_10_11_x86_64.whl (62.0MB)
+[K    100% |████████████████████████████████| 62.0MB 651kB/s eta 0:00:01
+[?25hRequirement already satisfied: anndata&amp;gt;=0.6.15 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.6.18)
+Requirement already satisfied: statsmodels in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.9.0)
+Requirement already satisfied: seaborn in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.9.0)
+Requirement already satisfied: patsy in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.5.0)
+Requirement already satisfied: natsort in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (5.4.0)
+Requirement already satisfied: networkx in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (2.2)
+Requirement already satisfied: joblib in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.13.1)
+Requirement already satisfied: scipy in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (1.1.0)
+Requirement already satisfied: matplotlib&amp;gt;=2.2 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (3.0.0)
+Requirement already satisfied: scikit-learn&amp;gt;=0.19.1 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.20.2)
+Requirement already satisfied: pandas&amp;gt;=0.21 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.23.4)
+Requirement already satisfied: tables in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (3.4.4)
+Requirement already satisfied: numba&amp;gt;=0.40.0 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (0.42.1)
+Requirement already satisfied: h5py in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from scanpy) (2.8.0)
+Requirement already satisfied: python-igraph&amp;gt;=0.7.1.0 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from louvain) (0.7.1.post6)
+Collecting keras-applications&amp;gt;=1.0.6 (from tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/90/85/64c82949765cfb246bbdaf5aca2d55f400f792655927a017710a78445def/Keras_Applications-1.0.7-py2.py3-none-any.whl (51kB)
+[K    100% |████████████████████████████████| 61kB 4.6MB/s ta 0:00:01
+[?25hCollecting protobuf&amp;gt;=3.6.1 (from tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/c7/27/133f225035b9539f2dcfebcdf9a69ff0152f56e0120160ec5c972ea7deb9/protobuf-3.6.1-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (1.2MB)
+[K    100% |████████████████████████████████| 1.2MB 8.3MB/s eta 0:00:01
+[?25hCollecting grpcio&amp;gt;=1.8.6 (from tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/50/11/e1a1e4912131c783f01734597150a58d75003d89aeff3ebf3d2ee5b4d36a/grpcio-1.18.0-cp36-cp36m-macosx_10_9_x86_64.whl (1.8MB)
+[K    100% |████████████████████████████████| 1.8MB 7.3MB/s eta 0:00:01
+[?25hRequirement already satisfied: wheel&amp;gt;=0.26 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from tensorflow) (0.32.0)
+Collecting astor&amp;gt;=0.6.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/35/6b/11530768cac581a12952a2aad00e1526b89d242d0b9f59534ef6e6a1752f/astor-0.7.1-py2.py3-none-any.whl
+Collecting gast&amp;gt;=0.2.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/4e/35/11749bf99b2d4e3cceb4d55ca22590b0d7c2c62b9de38ac4a4a7f4687421/gast-0.2.2.tar.gz
+Collecting termcolor&amp;gt;=1.1.0 (from tensorflow)
+  Downloading https://files.pythonhosted.org/packages/8a/48/a76be51647d0eb9f10e2a4511bf3ffb8cc1e6b14e9e4fab46173aa79f981/termcolor-1.1.0.tar.gz
+Collecting tensorboard&amp;lt;1.13.0,&amp;gt;=1.12.0 (from tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/07/53/8d32ce9471c18f8d99028b7cef2e5b39ea8765bd7ef250ca05b490880971/tensorboard-1.12.2-py3-none-any.whl (3.0MB)
+[K    100% |████████████████████████████████| 3.1MB 6.6MB/s eta 0:00:01
+[?25hRequirement already satisfied: numpy&amp;gt;=1.13.3 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from tensorflow) (1.15.4)
+Collecting absl-py&amp;gt;=0.1.6 (from tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/31/bc/ab68120d1d89ae23b694a55fe2aece2f91194313b71f9b05a80b32d3c24b/absl-py-0.7.0.tar.gz (96kB)
+[K    100% |████████████████████████████████| 102kB 23.4MB/s a 0:00:01
+[?25hCollecting keras-preprocessing&amp;gt;=1.0.5 (from tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/c0/bf/0315ef6a9fd3fc2346e85b0ff1f5f83ca17073f2c31ac719ab2e4da0d4a3/Keras_Preprocessing-1.0.9-py2.py3-none-any.whl (59kB)
+[K    100% |████████████████████████████████| 61kB 6.8MB/s ta 0:00:011
+[?25hRequirement already satisfied: six&amp;gt;=1.10.0 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from tensorflow) (1.11.0)
+Requirement already satisfied: decorator&amp;gt;=4.3.0 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from networkx-&amp;gt;scanpy) (4.3.0)
+Requirement already satisfied: cycler&amp;gt;=0.10 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from matplotlib&amp;gt;=2.2-&amp;gt;scanpy) (0.10.0)
+Requirement already satisfied: kiwisolver&amp;gt;=1.0.1 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from matplotlib&amp;gt;=2.2-&amp;gt;scanpy) (1.0.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&amp;gt;=2.0.1 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from matplotlib&amp;gt;=2.2-&amp;gt;scanpy) (2.2.2)
+Requirement already satisfied: python-dateutil&amp;gt;=2.1 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from matplotlib&amp;gt;=2.2-&amp;gt;scanpy) (2.7.3)
+Requirement already satisfied: pytz&amp;gt;=2011k in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from pandas&amp;gt;=0.21-&amp;gt;scanpy) (2018.5)
+Requirement already satisfied: numexpr&amp;gt;=2.5.2 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from tables-&amp;gt;scanpy) (2.6.6)
+Requirement already satisfied: llvmlite&amp;gt;=0.27.0dev0 in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from numba&amp;gt;=0.40.0-&amp;gt;scanpy) (0.27.1)
+Requirement already satisfied: setuptools in /anaconda3/envs/scanpy/lib/python3.6/site-packages (from protobuf&amp;gt;=3.6.1-&amp;gt;tensorflow) (40.4.0)
+Collecting werkzeug&amp;gt;=0.11.10 (from tensorboard&amp;lt;1.13.0,&amp;gt;=1.12.0-&amp;gt;tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB)
+[K    100% |████████████████████████████████| 327kB 8.3MB/s eta 0:00:01
+[?25hCollecting markdown&amp;gt;=2.6.8 (from tensorboard&amp;lt;1.13.0,&amp;gt;=1.12.0-&amp;gt;tensorflow)
+[?25l  Downloading https://files.pythonhosted.org/packages/7a/6b/5600647404ba15545ec37d2f7f58844d690baf2f81f3a60b862e48f29287/Markdown-3.0.1-py2.py3-none-any.whl (89kB)
+[K    100% |████████████████████████████████| 92kB 23.6MB/s ta 0:00:01
+[?25hBuilding wheels for collected packages: gast, termcolor, absl-py
+  Running setup.py bdist_wheel for gast ... [?25ldone
+[?25h  Stored in directory: /Users/kgosik/Library/Caches/pip/wheels/5c/2e/7e/a1d4d4fcebe6c381f378ce7743a3ced3699feb89bcfbdadadd
+  Running setup.py bdist_wheel for termcolor ... [?25ldone
+[?25h  Stored in directory: /Users/kgosik/Library/Caches/pip/wheels/7c/06/54/bc84598ba1daf8f970247f550b175aaaee85f68b4b0c5ab2c6
+  Running setup.py bdist_wheel for absl-py ... [?25ldone
+[?25h  Stored in directory: /Users/kgosik/Library/Caches/pip/wheels/90/db/f8/2c3101f72ef1ad434e4662853174126ce30201a3e163dcbeca
+Successfully built gast termcolor absl-py
+Installing collected packages: keras-applications, protobuf, grpcio, astor, gast, termcolor, werkzeug, markdown, tensorboard, absl-py, keras-preprocessing, tensorflow
+Successfully installed absl-py-0.7.0 astor-0.7.1 gast-0.2.2 grpcio-1.18.0 keras-applications-1.0.7 keras-preprocessing-1.0.9 markdown-3.0.1 protobuf-3.6.1 tensorboard-1.12.2 tensorflow-1.12.0 termcolor-1.1.0 werkzeug-0.14.1
+CPU times: user 1.11 s, sys: 341 ms, total: 1.45 s
+Wall time: 30.7 s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/bin/usr/python3
 
 import scanpy.api as sc
 import numpy as np
@@ -169,16 +277,25 @@ from model import SAUCIE
 from loader import Loader
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;adata = sc.read_10x_mtx(
+&lt;pre&gt;&lt;code&gt;/anaconda3/envs/scanpy/lib/python3.6/site-packages/matplotlib/__init__.py:886: MatplotlibDeprecationWarning:
+examples.directory is deprecated; in the future, examples will be found relative to the &#39;datapath&#39; directory.
+  &amp;quot;found relative to the &#39;datapath&#39; directory.&amp;quot;.format(key))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;adata = sc.read_10x_mtx(
     &#39;./data/filtered_gene_bc_matrices/hg19/&#39;,  # the directory with the `.mtx` file
     var_names=&#39;gene_symbols&#39;)                  # use gene symbols for the variable names (variables-axis index)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## checking shape of data
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## checking shape of data
 adata.X
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## transform to numpy array for running the model
+&lt;pre&gt;&lt;code&gt;&amp;lt;2700x32738 sparse matrix of type &#39;&amp;lt;class &#39;numpy.float32&#39;&amp;gt;&#39;
+    with 2286884 stored elements in Compressed Sparse Row format&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## transform to numpy array for running the model
 ## cells by genes
 
 data_np = adata.X.toarray()
@@ -186,8 +303,11 @@ initial_index = adata.obs.index
 gene_names = adata.var_names
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## making sure shape is the same
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## making sure shape is the same
 data_np.shape
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;(2700, 32738)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;scanpy-seurat-tutorial-of-pbmc&#34;&gt;Scanpy/Seurat Tutorial of PBMC&lt;/h2&gt;
@@ -196,7 +316,7 @@ data_np.shape
 
 &lt;h3 id=&#34;preprocess&#34;&gt;Preprocess&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;adata.var_names_make_unique()  # this is unnecessary if using &#39;gene_ids&#39;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;adata.var_names_make_unique()  # this is unnecessary if using &#39;gene_ids&#39;
 
 # basic filtering
 sc.pp.filter_cells(adata, min_genes=200)
@@ -223,7 +343,7 @@ sc.pp.log1p(adata)
 adata.raw = adata
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## identifying and filtering to highly variable genes
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## identifying and filtering to highly variable genes
 sc.pp.highly_variable_genes(adata, min_mean=0.0125, max_mean=3, min_disp=0.5)
 adata = adata[:, adata.var[&#39;highly_variable&#39;]]
 
@@ -236,28 +356,28 @@ sc.pp.scale(adata, max_value=10)
 
 &lt;h3 id=&#34;pca&#34;&gt;PCA&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.tl.pca(adata, svd_solver=&#39;arpack&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.tl.pca(adata, svd_solver=&#39;arpack&#39;)
 
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;neighborhood-graph&#34;&gt;Neighborhood Graph&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;cluster&#34;&gt;Cluster&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.tl.louvain(adata)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.tl.louvain(adata)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.tl.paga(adata)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.tl.paga(adata)
 sc.pl.paga(adata, plot=False)  # remove `plot=False` if you want to see the coarse-grained graph
 sc.tl.umap(adata, init_pos=&#39;paga&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;identify-cell-types&#34;&gt;Identify Cell Types&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
 new_cluster_names = [
     &#39;CD4 T&#39;, &#39;CD14+ Monocytes&#39;,
     &#39;B&#39;, &#39;CD8 T&#39;,
@@ -266,9 +386,11 @@ new_cluster_names = [
 adata.rename_categories(&#39;louvain&#39;, new_cluster_names)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## Plotting with UMAP
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## Plotting with UMAP
 sc.pl.umap(adata, color = &#39;louvain&#39;, legend_loc = &#39;on data&#39;)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./journal_club_SAUCIE_35_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;saucie&#34;&gt;SAUCIE&lt;/h2&gt;
 
@@ -306,7 +428,7 @@ SAUCIE(input_dim,
 
 &lt;h3 id=&#34;training-on-pbmc-data&#34;&gt;Training on PBMC Data&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;%%time
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;%%time
 ## takes about 35 minutes on just CPU runtime at 1000 steps
 ## takes less than 1 minutes with GPU runtime at 1000 steps. scales linearly, eg. 10000 steps ~ 10 minutes
 
@@ -327,22 +449,29 @@ loadtrain = Loader(data_np, shuffle=True)
 saucie.train(loadtrain, steps=1000)
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;pre&gt;&lt;code&gt;CPU times: user 51min 7s, sys: 4min 16s, total: 55min 23s
+Wall time: 8min 52s
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&#34;loading-output&#34;&gt;Loading Output&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;## Load results
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## Load results
 loadeval = Loader(data_np, shuffle=False)
 embedding = saucie.get_embedding(loadeval)
 number_of_clusters, clusters = saucie.get_clusters(loadeval)
 reconstruction = saucie.get_reconstruction(loadeval)
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;pre&gt;&lt;code&gt;---- Num clusters: 3 ---- Percent clustered: 0.212 ----
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;When creating this notebook and keeping the parameter settings the same, I go several different number of clusters each time.  This ranged from 1 cluster, the full dataset, up to 9 clusters.  It seems to be very inconsistent with how many clusters it chooses.  You can try and use the reqularization parameters to help with the tuning and selecting of clusters.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;## Joining Embeddings from model
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## Joining Embeddings from model
 adata.obs = adata.obs.join(pd.DataFrame(embedding, index = initial_index, columns =[&#39;SAUCIE1&#39;, &#39;SAUCIE2&#39;]))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## make cluster an integer value
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## make cluster an integer value
 clusters = [int(c) for c in clusters]
 
 ## Joining Cluster labels
@@ -351,26 +480,685 @@ adata.obs = adata.obs.join(pd.DataFrame(clusters, index = initial_index, columns
 ## gives an error related to pandas.  Does not effect any of the output.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;adata.obs
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;adata.obs
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## getting the reconstruction (imputed/denoised) data
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;n_genes&lt;/th&gt;
+      &lt;th&gt;percent_mito&lt;/th&gt;
+      &lt;th&gt;n_counts&lt;/th&gt;
+      &lt;th&gt;louvain&lt;/th&gt;
+      &lt;th&gt;SAUCIE1&lt;/th&gt;
+      &lt;th&gt;SAUCIE2&lt;/th&gt;
+      &lt;th&gt;SAUCIE_Cluster&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACATACAACCAC-1&lt;/th&gt;
+      &lt;td&gt;781&lt;/td&gt;
+      &lt;td&gt;0.030178&lt;/td&gt;
+      &lt;td&gt;2419.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;8.476698&lt;/td&gt;
+      &lt;td&gt;-2.873760&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACATTGAGCTAC-1&lt;/th&gt;
+      &lt;td&gt;1352&lt;/td&gt;
+      &lt;td&gt;0.037936&lt;/td&gt;
+      &lt;td&gt;4903.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;17.384949&lt;/td&gt;
+      &lt;td&gt;-0.249649&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACATTGATCAGC-1&lt;/th&gt;
+      &lt;td&gt;1131&lt;/td&gt;
+      &lt;td&gt;0.008897&lt;/td&gt;
+      &lt;td&gt;3147.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;9.934024&lt;/td&gt;
+      &lt;td&gt;-3.806074&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACCGTGCTTCCG-1&lt;/th&gt;
+      &lt;td&gt;960&lt;/td&gt;
+      &lt;td&gt;0.017431&lt;/td&gt;
+      &lt;td&gt;2639.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-2.734861&lt;/td&gt;
+      &lt;td&gt;-7.545496&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACCGTGTATGCG-1&lt;/th&gt;
+      &lt;td&gt;522&lt;/td&gt;
+      &lt;td&gt;0.012245&lt;/td&gt;
+      &lt;td&gt;980.0&lt;/td&gt;
+      &lt;td&gt;NK&lt;/td&gt;
+      &lt;td&gt;1.894840&lt;/td&gt;
+      &lt;td&gt;-1.413601&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACGCACTGGTAC-1&lt;/th&gt;
+      &lt;td&gt;782&lt;/td&gt;
+      &lt;td&gt;0.016644&lt;/td&gt;
+      &lt;td&gt;2163.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;8.803491&lt;/td&gt;
+      &lt;td&gt;-3.491647&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACGCTGACCAGT-1&lt;/th&gt;
+      &lt;td&gt;783&lt;/td&gt;
+      &lt;td&gt;0.038161&lt;/td&gt;
+      &lt;td&gt;2175.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;8.572388&lt;/td&gt;
+      &lt;td&gt;-1.691098&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACGCTGGTTCTT-1&lt;/th&gt;
+      &lt;td&gt;790&lt;/td&gt;
+      &lt;td&gt;0.030973&lt;/td&gt;
+      &lt;td&gt;2260.0&lt;/td&gt;
+      &lt;td&gt;CD8 T&lt;/td&gt;
+      &lt;td&gt;7.475278&lt;/td&gt;
+      &lt;td&gt;-1.813638&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACGCTGTAGCCA-1&lt;/th&gt;
+      &lt;td&gt;533&lt;/td&gt;
+      &lt;td&gt;0.011765&lt;/td&gt;
+      &lt;td&gt;1275.0&lt;/td&gt;
+      &lt;td&gt;CD8 T&lt;/td&gt;
+      &lt;td&gt;4.743185&lt;/td&gt;
+      &lt;td&gt;-1.437270&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACGCTGTTTCTG-1&lt;/th&gt;
+      &lt;td&gt;550&lt;/td&gt;
+      &lt;td&gt;0.029012&lt;/td&gt;
+      &lt;td&gt;1103.0&lt;/td&gt;
+      &lt;td&gt;FCGR3A+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-2.435220&lt;/td&gt;
+      &lt;td&gt;-2.841363&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACTTGAAAAACG-1&lt;/th&gt;
+      &lt;td&gt;1116&lt;/td&gt;
+      &lt;td&gt;0.026316&lt;/td&gt;
+      &lt;td&gt;3914.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;12.536373&lt;/td&gt;
+      &lt;td&gt;-0.558268&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAACTTGATCCAGA-1&lt;/th&gt;
+      &lt;td&gt;751&lt;/td&gt;
+      &lt;td&gt;0.010888&lt;/td&gt;
+      &lt;td&gt;2388.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;10.157495&lt;/td&gt;
+      &lt;td&gt;-0.945649&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGAGACGAGATA-1&lt;/th&gt;
+      &lt;td&gt;866&lt;/td&gt;
+      &lt;td&gt;0.010788&lt;/td&gt;
+      &lt;td&gt;2410.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;8.486689&lt;/td&gt;
+      &lt;td&gt;-2.031118&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGAGACGCGAGA-1&lt;/th&gt;
+      &lt;td&gt;1059&lt;/td&gt;
+      &lt;td&gt;0.014177&lt;/td&gt;
+      &lt;td&gt;3033.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;1.703430&lt;/td&gt;
+      &lt;td&gt;-7.991738&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGAGACGGACTT-1&lt;/th&gt;
+      &lt;td&gt;458&lt;/td&gt;
+      &lt;td&gt;0.023458&lt;/td&gt;
+      &lt;td&gt;1151.0&lt;/td&gt;
+      &lt;td&gt;CD8 T&lt;/td&gt;
+      &lt;td&gt;6.304974&lt;/td&gt;
+      &lt;td&gt;-2.142427&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGAGACGGCATT-1&lt;/th&gt;
+      &lt;td&gt;335&lt;/td&gt;
+      &lt;td&gt;0.023990&lt;/td&gt;
+      &lt;td&gt;792.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;4.453256&lt;/td&gt;
+      &lt;td&gt;0.249075&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGCAGATATCGG-1&lt;/th&gt;
+      &lt;td&gt;1424&lt;/td&gt;
+      &lt;td&gt;0.013962&lt;/td&gt;
+      &lt;td&gt;4584.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-3.512605&lt;/td&gt;
+      &lt;td&gt;-12.618699&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGCCTGTATGCG-1&lt;/th&gt;
+      &lt;td&gt;1014&lt;/td&gt;
+      &lt;td&gt;0.017077&lt;/td&gt;
+      &lt;td&gt;2928.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;9.271269&lt;/td&gt;
+      &lt;td&gt;-2.972033&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGGCCTGTCTAG-1&lt;/th&gt;
+      &lt;td&gt;1446&lt;/td&gt;
+      &lt;td&gt;0.015283&lt;/td&gt;
+      &lt;td&gt;4973.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;15.877410&lt;/td&gt;
+      &lt;td&gt;-6.024862&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGTTTGATCACG-1&lt;/th&gt;
+      &lt;td&gt;446&lt;/td&gt;
+      &lt;td&gt;0.034700&lt;/td&gt;
+      &lt;td&gt;1268.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;5.646181&lt;/td&gt;
+      &lt;td&gt;1.418554&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGTTTGGGGTGA-1&lt;/th&gt;
+      &lt;td&gt;1020&lt;/td&gt;
+      &lt;td&gt;0.025907&lt;/td&gt;
+      &lt;td&gt;3281.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;12.072451&lt;/td&gt;
+      &lt;td&gt;0.393993&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGTTTGTAGAGA-1&lt;/th&gt;
+      &lt;td&gt;417&lt;/td&gt;
+      &lt;td&gt;0.015426&lt;/td&gt;
+      &lt;td&gt;1102.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;4.598315&lt;/td&gt;
+      &lt;td&gt;-0.254824&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAAGTTTGTAGCGT-1&lt;/th&gt;
+      &lt;td&gt;878&lt;/td&gt;
+      &lt;td&gt;0.024972&lt;/td&gt;
+      &lt;td&gt;2683.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;0.128826&lt;/td&gt;
+      &lt;td&gt;-8.880854&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCAACAATGCC-1&lt;/th&gt;
+      &lt;td&gt;789&lt;/td&gt;
+      &lt;td&gt;0.011643&lt;/td&gt;
+      &lt;td&gt;2319.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;9.083061&lt;/td&gt;
+      &lt;td&gt;1.080260&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCAACACCAGT-1&lt;/th&gt;
+      &lt;td&gt;510&lt;/td&gt;
+      &lt;td&gt;0.019830&lt;/td&gt;
+      &lt;td&gt;1412.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;6.612620&lt;/td&gt;
+      &lt;td&gt;-0.164535&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCAACCAGGAG-1&lt;/th&gt;
+      &lt;td&gt;824&lt;/td&gt;
+      &lt;td&gt;0.022500&lt;/td&gt;
+      &lt;td&gt;2800.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;11.187101&lt;/td&gt;
+      &lt;td&gt;-0.939697&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCAACCCTATT-1&lt;/th&gt;
+      &lt;td&gt;1545&lt;/td&gt;
+      &lt;td&gt;0.024313&lt;/td&gt;
+      &lt;td&gt;5676.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;-4.562459&lt;/td&gt;
+      &lt;td&gt;-14.477454&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCAACGGAAGC-1&lt;/th&gt;
+      &lt;td&gt;996&lt;/td&gt;
+      &lt;td&gt;0.017564&lt;/td&gt;
+      &lt;td&gt;3473.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;13.164171&lt;/td&gt;
+      &lt;td&gt;-0.963695&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCAACTCGCAA-1&lt;/th&gt;
+      &lt;td&gt;937&lt;/td&gt;
+      &lt;td&gt;0.018499&lt;/td&gt;
+      &lt;td&gt;2811.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;9.517199&lt;/td&gt;
+      &lt;td&gt;-3.321495&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AAATCATGACCACA-1&lt;/th&gt;
+      &lt;td&gt;1368&lt;/td&gt;
+      &lt;td&gt;0.045785&lt;/td&gt;
+      &lt;td&gt;4128.0&lt;/td&gt;
+      &lt;td&gt;FCGR3A+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-5.798370&lt;/td&gt;
+      &lt;td&gt;-9.642257&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGAGACGCTATG-1&lt;/th&gt;
+      &lt;td&gt;862&lt;/td&gt;
+      &lt;td&gt;0.024042&lt;/td&gt;
+      &lt;td&gt;2662.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;0.297886&lt;/td&gt;
+      &lt;td&gt;-9.226500&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGAGACTATGGC-1&lt;/th&gt;
+      &lt;td&gt;739&lt;/td&gt;
+      &lt;td&gt;0.028684&lt;/td&gt;
+      &lt;td&gt;1778.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;6.505899&lt;/td&gt;
+      &lt;td&gt;0.367602&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGGAACTGAACC-1&lt;/th&gt;
+      &lt;td&gt;858&lt;/td&gt;
+      &lt;td&gt;0.021124&lt;/td&gt;
+      &lt;td&gt;2651.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;10.031704&lt;/td&gt;
+      &lt;td&gt;-1.399506&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGTACTACTGGT-1&lt;/th&gt;
+      &lt;td&gt;1066&lt;/td&gt;
+      &lt;td&gt;0.028484&lt;/td&gt;
+      &lt;td&gt;3265.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-4.375662&lt;/td&gt;
+      &lt;td&gt;-9.680963&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGTACTCTTAGG-1&lt;/th&gt;
+      &lt;td&gt;752&lt;/td&gt;
+      &lt;td&gt;0.017430&lt;/td&gt;
+      &lt;td&gt;2926.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;12.116606&lt;/td&gt;
+      &lt;td&gt;-0.787481&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGTACTGAATCC-1&lt;/th&gt;
+      &lt;td&gt;615&lt;/td&gt;
+      &lt;td&gt;0.025337&lt;/td&gt;
+      &lt;td&gt;1855.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;7.341644&lt;/td&gt;
+      &lt;td&gt;0.941724&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGGTACTGGATTC-1&lt;/th&gt;
+      &lt;td&gt;721&lt;/td&gt;
+      &lt;td&gt;0.019118&lt;/td&gt;
+      &lt;td&gt;1883.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;6.738325&lt;/td&gt;
+      &lt;td&gt;1.170226&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGTACACGTTGTG-1&lt;/th&gt;
+      &lt;td&gt;571&lt;/td&gt;
+      &lt;td&gt;0.037760&lt;/td&gt;
+      &lt;td&gt;1536.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;6.317973&lt;/td&gt;
+      &lt;td&gt;0.560490&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGTACACTTGCAG-1&lt;/th&gt;
+      &lt;td&gt;861&lt;/td&gt;
+      &lt;td&gt;0.013729&lt;/td&gt;
+      &lt;td&gt;2258.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;8.185881&lt;/td&gt;
+      &lt;td&gt;-2.871668&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGTAGCTAGCTCA-1&lt;/th&gt;
+      &lt;td&gt;933&lt;/td&gt;
+      &lt;td&gt;0.022249&lt;/td&gt;
+      &lt;td&gt;2517.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;7.695907&lt;/td&gt;
+      &lt;td&gt;-3.052328&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGTAGCTCTCTTA-1&lt;/th&gt;
+      &lt;td&gt;807&lt;/td&gt;
+      &lt;td&gt;0.026242&lt;/td&gt;
+      &lt;td&gt;2134.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;6.815217&lt;/td&gt;
+      &lt;td&gt;0.676778&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTGTCATGGACGGA-1&lt;/th&gt;
+      &lt;td&gt;1082&lt;/td&gt;
+      &lt;td&gt;0.018382&lt;/td&gt;
+      &lt;td&gt;2176.0&lt;/td&gt;
+      &lt;td&gt;NK&lt;/td&gt;
+      &lt;td&gt;4.413966&lt;/td&gt;
+      &lt;td&gt;-3.471612&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTAGAGATCCTCG-1&lt;/th&gt;
+      &lt;td&gt;820&lt;/td&gt;
+      &lt;td&gt;0.013548&lt;/td&gt;
+      &lt;td&gt;2362.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;8.096852&lt;/td&gt;
+      &lt;td&gt;1.388018&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTAGCTGATACCG-1&lt;/th&gt;
+      &lt;td&gt;887&lt;/td&gt;
+      &lt;td&gt;0.022876&lt;/td&gt;
+      &lt;td&gt;2754.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;10.145590&lt;/td&gt;
+      &lt;td&gt;-1.339698&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTAGCTGGATACC-1&lt;/th&gt;
+      &lt;td&gt;850&lt;/td&gt;
+      &lt;td&gt;0.011002&lt;/td&gt;
+      &lt;td&gt;2454.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-1.483911&lt;/td&gt;
+      &lt;td&gt;-7.090866&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTAGCTGTACTCT-1&lt;/th&gt;
+      &lt;td&gt;1567&lt;/td&gt;
+      &lt;td&gt;0.021160&lt;/td&gt;
+      &lt;td&gt;5671.0&lt;/td&gt;
+      &lt;td&gt;Dendritic&lt;/td&gt;
+      &lt;td&gt;6.417912&lt;/td&gt;
+      &lt;td&gt;-15.050301&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTAGGCTCCTTTA-1&lt;/th&gt;
+      &lt;td&gt;803&lt;/td&gt;
+      &lt;td&gt;0.023221&lt;/td&gt;
+      &lt;td&gt;1981.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-0.483748&lt;/td&gt;
+      &lt;td&gt;-5.736931&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTATCCTGTTGTG-1&lt;/th&gt;
+      &lt;td&gt;1156&lt;/td&gt;
+      &lt;td&gt;0.013047&lt;/td&gt;
+      &lt;td&gt;3679.0&lt;/td&gt;
+      &lt;td&gt;FCGR3A+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-4.745433&lt;/td&gt;
+      &lt;td&gt;-10.890655&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCACGAGGTTCA-1&lt;/th&gt;
+      &lt;td&gt;721&lt;/td&gt;
+      &lt;td&gt;0.013261&lt;/td&gt;
+      &lt;td&gt;2036.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;8.847115&lt;/td&gt;
+      &lt;td&gt;-0.573167&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCAGTGGAAGGC-1&lt;/th&gt;
+      &lt;td&gt;692&lt;/td&gt;
+      &lt;td&gt;0.015169&lt;/td&gt;
+      &lt;td&gt;1780.0&lt;/td&gt;
+      &lt;td&gt;CD8 T&lt;/td&gt;
+      &lt;td&gt;7.151438&lt;/td&gt;
+      &lt;td&gt;-1.351251&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCAGTGTCACGA-1&lt;/th&gt;
+      &lt;td&gt;700&lt;/td&gt;
+      &lt;td&gt;0.034314&lt;/td&gt;
+      &lt;td&gt;1632.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;6.117057&lt;/td&gt;
+      &lt;td&gt;0.733335&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCAGTGTCTATC-1&lt;/th&gt;
+      &lt;td&gt;458&lt;/td&gt;
+      &lt;td&gt;0.024546&lt;/td&gt;
+      &lt;td&gt;937.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;-1.595217&lt;/td&gt;
+      &lt;td&gt;-3.230395&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCAGTGTGCAGT-1&lt;/th&gt;
+      &lt;td&gt;637&lt;/td&gt;
+      &lt;td&gt;0.018925&lt;/td&gt;
+      &lt;td&gt;1321.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;4.754774&lt;/td&gt;
+      &lt;td&gt;1.317456&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCCAGAGGTGAG-1&lt;/th&gt;
+      &lt;td&gt;873&lt;/td&gt;
+      &lt;td&gt;0.006859&lt;/td&gt;
+      &lt;td&gt;2187.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;6.421267&lt;/td&gt;
+      &lt;td&gt;-2.587235&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCGAACACCTGA-1&lt;/th&gt;
+      &lt;td&gt;1544&lt;/td&gt;
+      &lt;td&gt;0.013019&lt;/td&gt;
+      &lt;td&gt;4455.0&lt;/td&gt;
+      &lt;td&gt;Dendritic&lt;/td&gt;
+      &lt;td&gt;7.185830&lt;/td&gt;
+      &lt;td&gt;-8.368724&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCGAACTCTCAT-1&lt;/th&gt;
+      &lt;td&gt;1155&lt;/td&gt;
+      &lt;td&gt;0.021104&lt;/td&gt;
+      &lt;td&gt;3459.0&lt;/td&gt;
+      &lt;td&gt;CD14+ Monocytes&lt;/td&gt;
+      &lt;td&gt;0.709719&lt;/td&gt;
+      &lt;td&gt;-9.357344&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCTACTGAGGCA-1&lt;/th&gt;
+      &lt;td&gt;1227&lt;/td&gt;
+      &lt;td&gt;0.009294&lt;/td&gt;
+      &lt;td&gt;3443.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;9.201287&lt;/td&gt;
+      &lt;td&gt;-1.623354&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTCTACTTCCTCG-1&lt;/th&gt;
+      &lt;td&gt;622&lt;/td&gt;
+      &lt;td&gt;0.021971&lt;/td&gt;
+      &lt;td&gt;1684.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;6.398504&lt;/td&gt;
+      &lt;td&gt;1.296914&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTGCATGAGAGGC-1&lt;/th&gt;
+      &lt;td&gt;454&lt;/td&gt;
+      &lt;td&gt;0.020548&lt;/td&gt;
+      &lt;td&gt;1022.0&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;5.387521&lt;/td&gt;
+      &lt;td&gt;0.035854&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;TTTGCATGCCTCAC-1&lt;/th&gt;
+      &lt;td&gt;724&lt;/td&gt;
+      &lt;td&gt;0.008065&lt;/td&gt;
+      &lt;td&gt;1984.0&lt;/td&gt;
+      &lt;td&gt;CD4 T&lt;/td&gt;
+      &lt;td&gt;7.869697&lt;/td&gt;
+      &lt;td&gt;-0.513771&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;2638 rows × 7 columns&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## getting the reconstruction (imputed/denoised) data
 reconstruction_df = adata.obs.join(pd.DataFrame(reconstruction, index = initial_index, columns = gene_names), how=&#39;left&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## only selecting the highly variable genes that were chosen from above
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## only selecting the highly variable genes that were chosen from above
 reconstruction_df = reconstruction_df[adata.var_names]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## checking shape matches
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## checking shape matches
 reconstruction_df.shape
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## checking shape matches
+&lt;pre&gt;&lt;code&gt;(2638, 1838)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## checking shape matches
 adata.X.shape
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## storing the reconstructiong values in the adata layers and naming it SAUCIE
+&lt;pre&gt;&lt;code&gt;(2638, 1838)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## storing the reconstructiong values in the adata layers and naming it SAUCIE
 adata.layers[&#39;SAUCIE&#39;] = reconstruction_df.values
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -382,35 +1170,63 @@ adata.layers[&#39;SAUCIE&#39;] = reconstruction_df.values
 
 &lt;p&gt;This goes through the same steps above but adding the suffix &amp;lsquo;_recon&amp;rsquo; to differentiate between the two outputs.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;## https://github.com/KrishnaswamyLab/SAUCIE#usage
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## save reconstruction
+np.save(&#39;saucie_reconstruction_round1.npy&#39;, reconstruction)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## save index
+np.save(&#39;initial_index.npy&#39;, initial_index)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## save gene names
+np.save(&#39;gene_names.npy&#39;, gene_names)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## save adata object
+adata.write(&#39;pbmc_adata.h5ad&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## restart kernel to clear tensorflow output
+
+## reread previous results
+reconstruction = np.load(&#39;saucie_reconstruction_round1.npy&#39;)
+initial_index = np.load(&#39;initial_index.npy&#39;)
+gene_names = np.load(&#39;gene_names.npy&#39;)
+adata = sc.read(&#39;pbmc_adata.h5ad&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## https://github.com/KrishnaswamyLab/SAUCIE#usage
 saucie_recon = SAUCIE(input_dim = reconstruction.shape[1],
-                lambda_b=0, # default: 0
-                lambda_c=0, # default: 0
-                layer_c=0, # default: 0
-                lambda_d=0, # default: 0
-                layers=[512,256,128,2], # default: [512,256,128,2]
-                activation=&#39;lrelu&#39;, # default: lrelu
-                learning_rate=.001, # defaul: .001
-                restore_folder=&#39;&#39;, # defaul: &#39;&#39;
-                save_folder=&#39;&#39;, # default: &#39;&#39;
-                limit_gpu_fraction=.3, # default .3
-                no_gpu=False) # default: False
+                      lambda_b=0, # default: 0
+                      lambda_c=0, # default: 0
+                      layer_c=0, # default: 0
+                      lambda_d=0, # default: 0
+                      layers=[512,256,128,2], # default: [512,256,128,2]
+                      activation=&#39;lrelu&#39;, # default: lrelu
+                      learning_rate=.001, # defaul: .001
+                      restore_folder=&#39;&#39;, # defaul: &#39;&#39;
+                      save_folder=&#39;&#39;, # default: &#39;&#39;
+                      limit_gpu_fraction=.3, # default .3
+                      no_gpu=False) # default: False
 loadtrain_recon = Loader(reconstruction, shuffle=True)
 saucie_recon.train(loadtrain_recon, steps=1000)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## Load results
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## Load results
 loadeval_recon = Loader(reconstruction, shuffle=False)
 embedding_recon = saucie_recon.get_embedding(loadeval_recon)
 number_of_clusters_recon, clusters_recon = saucie_recon.get_clusters(loadeval_recon)
 reconstruction_recon = saucie_recon.get_reconstruction(loadeval_recon)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## Joining Embeddings from model
+&lt;pre&gt;&lt;code&gt;---- Num clusters: 7 ---- Percent clustered: 0.427 ----
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## Joining Embeddings from model
 adata.obs = adata.obs.join(pd.DataFrame(embedding_recon, index = initial_index, columns =[&#39;SAUCIE1_recon&#39;, &#39;SAUCIE2_recon&#39;]))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## make cluster an integer value
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;## make cluster an integer value
 clusters_recon = [int(c) for c in clusters_recon]
 
 ## Joining Cluster labels
@@ -419,7 +1235,7 @@ adata.obs = adata.obs.join(pd.DataFrame(clusters_recon, index = initial_index, c
 ## gives an error related to pandas.  Does not effect any of the output.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;reconstruction_df = adata.obs.join(pd.DataFrame(reconstruction_recon, index = initial_index, columns = gene_names), how=&#39;left&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;reconstruction_df = adata.obs.join(pd.DataFrame(reconstruction_recon, index = initial_index, columns = gene_names), how=&#39;left&#39;)
 reconstruction_df = reconstruction_df[adata.var_names]
 adata.layers[&#39;SAUCIE_recon&#39;] = reconstruction_df.values
 &lt;/code&gt;&lt;/pre&gt;
@@ -430,37 +1246,319 @@ adata.layers[&#39;SAUCIE_recon&#39;] = reconstruction_df.values
 
 &lt;h3 id=&#34;louvain-labels-vs-saucie-clusters-w-o-imputation&#34;&gt;Louvain Labels vs SAUCIE Clusters (w/o imputation)&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;pd.crosstab(adata.obs.louvain, adata.obs.SAUCIE_Cluster)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pd.crosstab(adata.obs.louvain, adata.obs.SAUCIE_Cluster)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;SAUCIE_Cluster&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;louvain&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CD4 T&lt;/th&gt;
+      &lt;td&gt;902&lt;/td&gt;
+      &lt;td&gt;96&lt;/td&gt;
+      &lt;td&gt;155&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CD14+ Monocytes&lt;/th&gt;
+      &lt;td&gt;480&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;B&lt;/th&gt;
+      &lt;td&gt;336&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CD8 T&lt;/th&gt;
+      &lt;td&gt;198&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;NK&lt;/th&gt;
+      &lt;td&gt;149&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;FCGR3A+ Monocytes&lt;/th&gt;
+      &lt;td&gt;153&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dendritic&lt;/th&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Megakaryocytes&lt;/th&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&#34;louvain-labels-vs-saucie-clusters-using-imputation-as-input&#34;&gt;Louvain Labels vs SAUCIE Clusters using Imputation as input&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;pd.crosstab(adata.obs.louvain, adata.obs.SAUCIE_Cluster_recon)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pd.crosstab(adata.obs.louvain, adata.obs.SAUCIE_Cluster_recon)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;SAUCIE_Cluster_recon&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;louvain&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CD4 T&lt;/th&gt;
+      &lt;td&gt;436&lt;/td&gt;
+      &lt;td&gt;285&lt;/td&gt;
+      &lt;td&gt;90&lt;/td&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;112&lt;/td&gt;
+      &lt;td&gt;127&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CD14+ Monocytes&lt;/th&gt;
+      &lt;td&gt;349&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;131&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;B&lt;/th&gt;
+      &lt;td&gt;323&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;CD8 T&lt;/th&gt;
+      &lt;td&gt;179&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;98&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;NK&lt;/th&gt;
+      &lt;td&gt;150&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;FCGR3A+ Monocytes&lt;/th&gt;
+      &lt;td&gt;147&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dendritic&lt;/th&gt;
+      &lt;td&gt;35&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Megakaryocytes&lt;/th&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&#34;saucie-clusters-w-o-imputation-vs-saucie-clusters-w-imputation&#34;&gt;SAUCIE Clusters (w/o imputation) vs SAUCIE Clusters (w imputation)&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;pd.crosstab(adata.obs.SAUCIE_Cluster, adata.obs.SAUCIE_Cluster_recon)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pd.crosstab(adata.obs.SAUCIE_Cluster, adata.obs.SAUCIE_Cluster_recon)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;SAUCIE_Cluster_recon&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;th&gt;6&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SAUCIE_Cluster&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;1555&lt;/td&gt;
+      &lt;td&gt;298&lt;/td&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;81&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;47&lt;/td&gt;
+      &lt;td&gt;137&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;68&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;79&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;186&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&#34;compare-visualizations&#34;&gt;Compare Visualizations&lt;/h2&gt;
 
 &lt;h3 id=&#34;saucie-w-o-imputation&#34;&gt;SAUCIE w/o Imputation&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.pl.scatter(adata, &#39;SAUCIE1&#39;, &#39;SAUCIE2&#39;, color = &#39;SAUCIE_Cluster&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.pl.scatter(adata, &#39;SAUCIE1&#39;, &#39;SAUCIE2&#39;, color = &#39;SAUCIE_Cluster&#39;)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./journal_club_SAUCIE_71_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;saucie-w-imputation&#34;&gt;SAUCIE w/ Imputation&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.pl.scatter(adata, &#39;SAUCIE1_recon&#39;, &#39;SAUCIE2_recon&#39;, color = &#39;SAUCIE_Cluster_recon&#39;)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.pl.scatter(adata, &#39;SAUCIE1_recon&#39;, &#39;SAUCIE2_recon&#39;, color = &#39;SAUCIE_Cluster_recon&#39;)
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;./journal_club_SAUCIE_73_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;comparing-clusters-on-umap-dimensions&#34;&gt;Comparing Clusters on UMAP Dimensions&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sc.pl.umap(adata, color = [&#39;louvain&#39;, &#39;SAUCIE_Cluster&#39;, &#39;SAUCIE_Cluster_recon&#39;])
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;sc.pl.umap(adata, color = [&#39;louvain&#39;, &#39;SAUCIE_Cluster&#39;, &#39;SAUCIE_Cluster_recon&#39;])
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;
+&lt;p&gt;&lt;img src=&#34;./journal_club_SAUCIE_75_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -514,26 +1612,6 @@ Figure 1: A ggplot.
     </item>
     
     <item>
-      <title>Example Page</title>
-      <link>https://kdgosik.netlify.com/tutorial/example/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tutorial/example/</guid>
-      <description>
-
-&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
-
-&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Example Talk</title>
       <link>https://kdgosik.netlify.com/talk/example/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
@@ -572,16 +1650,7 @@ Figure 1: A ggplot.
       <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
       
       <guid>https://kdgosik.netlify.com/project/internal-project/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-</description>
+      <description></description>
     </item>
     
     <item>
@@ -957,16 +2026,6 @@ git submodule update --init --recursive
     </item>
     
     <item>
-      <title>A Person Re-Identification System For Mobile Devices</title>
-      <link>https://kdgosik.netlify.com/publication/person-re-id/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/publication/person-re-id/</guid>
-      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Hello R Markdown</title>
       <link>https://kdgosik.netlify.com/post/2015-07-23-r-rmarkdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
@@ -1014,16 +2073,6 @@ Figure 1: A fancy pie chart.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Mobile visual clothing search</title>
-      <link>https://kdgosik.netlify.com/publication/clothing-search/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/publication/clothing-search/</guid>
-      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     

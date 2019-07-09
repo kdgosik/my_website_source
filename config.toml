@@ -11,6 +11,7 @@ baseurl = "https://kdgosik.netlify.com/"
 
 # Title of your site
 title = "Kirk Gosik"
+# ORCID - https://orcid.org/0000-0001-7612-2176
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
@@ -74,7 +75,7 @@ enableGitInfo = false
   # keybase = ""  # Your keybase.io username.
 
   # Enter an optional link for booking appointments (e.g. calendly.com).
-  appointment_url = ""
+  appointment_url = "https://calendly.com/kdgosik"
 
   # Discussion link (e.g. link to a forum, mailing list, or chat).
   #   Uncomment line below to use.
@@ -114,7 +115,7 @@ enableGitInfo = false
   font = "classic"
 
   # Description for social sharing and search engines. If undefined, author role is used in place.
-  description = ""
+  description = "Personal site of Kirk Gosik"
 
   # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
   sharing_image = ""

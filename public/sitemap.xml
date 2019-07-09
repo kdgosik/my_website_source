@@ -4,24 +4,16 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/tutorial/2019-02-16-journal_club_saucie/</loc>
-      <lastmod>2019-02-16T10:38:18-05:00</lastmod>
+      <loc>https://kdgosik.netlify.com/publication/iform/</loc>
+      <lastmod>2019-07-09T14:51:22-04:00</lastmod>
     </url>
     
   
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/tutorial/my-tutorial/</loc>
-      <lastmod>2019-02-15T12:55:48-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/tutorial/journal_club/</loc>
-      <lastmod>2019-02-15T10:14:45-05:00</lastmod>
+      <loc>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</loc>
+      <lastmod>2019-02-16T11:22:14-05:00</lastmod>
     </url>
     
   
@@ -30,14 +22,6 @@
     
       <loc>https://kdgosik.netlify.com/post/r-markdown-hello/</loc>
       <lastmod>2019-02-15T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/tutorial/example/</loc>
-      <lastmod>2018-09-09T00:00:00-04:00</lastmod>
     </url>
     
   
@@ -108,14 +92,6 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/publication/person-re-id/</loc>
-      <lastmod>2015-09-01T00:00:00-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://kdgosik.netlify.com/post/2015-07-23-r-rmarkdown/</loc>
       <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     </url>
@@ -124,25 +100,8 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/publication/clothing-search/</loc>
-      <lastmod>2013-07-01T00:00:00-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/publication_types/1/</loc>
-      <lastmod>2013-07-01T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://kdgosik.netlify.com/publication_types/2/</loc>
-      <lastmod>2015-09-01T00:00:00-04:00</lastmod>
+      <lastmod>2019-07-09T14:51:22-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -176,15 +135,6 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/tags/demo/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://kdgosik.netlify.com/</loc>
       <lastmod>2017-10-15T00:00:00-04:00</lastmod>
       <priority>0</priority>
@@ -204,7 +154,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/publication_types/</loc>
-      <lastmod>2013-07-01T00:00:00-04:00</lastmod>
+      <lastmod>2019-07-09T14:51:22-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -254,6 +204,15 @@
     
     <url>
     
+      <loc>https://kdgosik.netlify.com/tags/course/</loc>
+      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://kdgosik.netlify.com/tags/ggplot/</loc>
       <lastmod>2019-02-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -274,6 +233,24 @@
     
       <loc>https://kdgosik.netlify.com/tags/regression/</loc>
       <lastmod>2019-02-15T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/tags/scrna/</loc>
+      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/tags/workshop/</loc>
+      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     

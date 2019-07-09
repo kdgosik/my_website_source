@@ -31,20 +31,20 @@
     </item>
     
     <item>
-      <title>Demo</title>
-      <link>https://kdgosik.netlify.com/tags/demo/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tags/demo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>R Markdown</title>
       <link>https://kdgosik.netlify.com/tags/r-markdown/</link>
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>https://kdgosik.netlify.com/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>course</title>
+      <link>https://kdgosik.netlify.com/tags/course/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tags/course/</guid>
       <description></description>
     </item>
     
@@ -72,6 +72,24 @@
       <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://kdgosik.netlify.com/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scRNA</title>
+      <link>https://kdgosik.netlify.com/tags/scrna/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tags/scrna/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>workshop</title>
+      <link>https://kdgosik.netlify.com/tags/workshop/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/tags/workshop/</guid>
       <description></description>
     </item>
     

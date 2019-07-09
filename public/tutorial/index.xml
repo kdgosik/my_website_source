@@ -14,42 +14,13 @@
     
     <item>
       <title></title>
-      <link>https://kdgosik.netlify.com/tutorial/2019-02-16-journal_club_saucie/</link>
-      <pubDate>Sat, 16 Feb 2019 10:38:18 -0500</pubDate>
+      <link>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</link>
+      <pubDate>Sat, 16 Feb 2019 11:22:14 -0500</pubDate>
       
-      <guid>https://kdgosik.netlify.com/tutorial/2019-02-16-journal_club_saucie/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My Tutorial</title>
-      <link>https://kdgosik.netlify.com/tutorial/my-tutorial/</link>
-      <pubDate>Fri, 15 Feb 2019 12:55:48 -0500</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tutorial/my-tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Journal Club</title>
-      <link>https://kdgosik.netlify.com/tutorial/journal_club/</link>
-      <pubDate>Fri, 15 Feb 2019 10:14:45 -0500</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tutorial/journal_club/</guid>
+      <guid>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</guid>
       <description>SAUCIE Journal Club  Reference Biorxiv  Exploring Single-Cell Data with Deep Multitasking Neural Networks
 Preivew of the paper on biorxiv.
 Description Our unsupervised architecture, called SAUCIE (Sparse Autoencoder for Unsupervised Clustering, Imputation, and Embedding), simultaneously performs several key tasks for single-cell data analysis including 1) clustering, 2) batch correction, 3) visualization, and 4) denoising/imputation. SAUCIE is trained to recreate its own input after reducing its dimensionality in a 2-D embedding layer which can be used to visualize the data.</description>
-    </item>
-    
-    <item>
-      <title>Example Page</title>
-      <link>https://kdgosik.netlify.com/tutorial/example/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/tutorial/example/</guid>
-      <description>In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:
-Tip 1 &amp;hellip;
-Tip 2 &amp;hellip;</description>
     </item>
     
   </channel>
