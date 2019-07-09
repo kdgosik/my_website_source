@@ -11,15 +11,6 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Iform</title>
-      <link>https://kdgosik.netlify.com/publication/iform/</link>
-      <pubDate>Tue, 09 Jul 2019 14:51:22 -0400</pubDate>
-      
-      <guid>https://kdgosik.netlify.com/publication/iform/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title></title>
       <link>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</link>
       <pubDate>Sat, 16 Feb 2019 11:22:14 -0500</pubDate>
@@ -2023,6 +2014,15 @@ git submodule update --init --recursive
 
 &lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md&#34; target=&#34;_blank&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>iForm</title>
+      <link>https://kdgosik.netlify.com/publication/iform/</link>
+      <pubDate>Fri, 04 Mar 2016 14:51:22 -0400</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/publication/iform/</guid>
+      <description></description>
     </item>
     
     <item>
