@@ -1,8 +1,8 @@
 {
-    "path" : "~/Documents/projects/my_website_source/themes/hugo-academic/assets/css",
+    "path" : "~/Documents/projects/my_website_source",
     "sortOrder" : [
         {
-            "ascending" : true,
+            "ascending" : false,
             "columnIndex" : 2
         }
     ]

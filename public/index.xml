@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Block Mixture</title>
+      <link>https://kdgosik.netlify.com/publication/block-mixture/</link>
+      <pubDate>Wed, 13 Nov 2019 15:23:32 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/publication/block-mixture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</link>
       <pubDate>Sat, 16 Feb 2019 11:22:14 -0500</pubDate>
@@ -1603,44 +1612,57 @@ Figure 1: A ggplot.
     </item>
     
     <item>
-      <title>Example Talk</title>
-      <link>https://kdgosik.netlify.com/talk/example/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      <title>Ultrahigh-Dimensional Mapping</title>
+      <link>https://kdgosik.netlify.com/publication/ultrahigh-dim-map/</link>
+      <pubDate>Wed, 01 Aug 2018 15:14:53 -0500</pubDate>
       
-      <guid>https://kdgosik.netlify.com/talk/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;p&gt;Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.&lt;/p&gt;
-
-&lt;/div&gt;
-
-
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;em&gt;Slides&lt;/em&gt; feature and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+      <guid>https://kdgosik.netlify.com/publication/ultrahigh-dim-map/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://kdgosik.netlify.com/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/privacy/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>External Project</title>
       <link>https://kdgosik.netlify.com/project/external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 27 Feb 2018 00:00:00 -0400</pubDate>
       
       <guid>https://kdgosik.netlify.com/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Internal Project</title>
-      <link>https://kdgosik.netlify.com/project/internal-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 -0400</pubDate>
+      <title>Shoot Root Covar</title>
+      <link>https://kdgosik.netlify.com/publication/shoot-root-covar/</link>
+      <pubDate>Thu, 01 Jun 2017 15:09:25 -0500</pubDate>
       
-      <guid>https://kdgosik.netlify.com/project/internal-project/</guid>
+      <guid>https://kdgosik.netlify.com/publication/shoot-root-covar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Epi Game</title>
+      <link>https://kdgosik.netlify.com/publication/epi-game/</link>
+      <pubDate>Wed, 01 Mar 2017 15:03:49 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/publication/epi-game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HpQTL</title>
+      <link>https://kdgosik.netlify.com/publication/hpqtl/</link>
+      <pubDate>Wed, 15 Feb 2017 15:20:01 -0500</pubDate>
+      
+      <guid>https://kdgosik.netlify.com/publication/hpqtl/</guid>
       <description></description>
     </item>
     

@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>https://kdgosik.netlify.com/publication/block-mixture/</loc>
+      <lastmod>2019-11-13T15:23:32-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://kdgosik.netlify.com/tutorial/journal-club-saucie/</loc>
       <lastmod>2019-02-16T11:22:14-05:00</lastmod>
     </url>
@@ -28,8 +36,48 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/talk/example/</loc>
-      <lastmod>2017-01-01T00:00:00-05:00</lastmod>
+      <loc>https://kdgosik.netlify.com/publication/ultrahigh-dim-map/</loc>
+      <lastmod>2018-08-01T15:14:53-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/privacy/</loc>
+      <lastmod>2018-06-28T00:00:00-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/project/external-project/</loc>
+      <lastmod>2018-02-27T00:00:00-04:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/publication/shoot-root-covar/</loc>
+      <lastmod>2017-06-01T15:09:25-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/publication/epi-game/</loc>
+      <lastmod>2017-03-01T15:03:49-05:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://kdgosik.netlify.com/publication/hpqtl/</loc>
+      <lastmod>2017-02-15T15:20:01-05:00</lastmod>
     </url>
     
   
@@ -54,22 +102,6 @@
     
       <loc>https://kdgosik.netlify.com/talk/</loc>
       <lastmod>2017-01-01T00:00:00-05:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/project/external-project/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://kdgosik.netlify.com/project/internal-project/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
     </url>
     
   
@@ -101,7 +133,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/publication_types/3/</loc>
-      <lastmod>2016-03-04T14:51:22-04:00</lastmod>
+      <lastmod>2019-11-13T15:23:32-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -126,15 +158,6 @@
     
     <url>
     
-      <loc>https://kdgosik.netlify.com/tags/deep-learning/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://kdgosik.netlify.com/</loc>
       <lastmod>2017-10-15T00:00:00-04:00</lastmod>
       <priority>0</priority>
@@ -145,7 +168,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/project/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+      <lastmod>2018-02-27T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -154,7 +177,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/publication_types/</loc>
-      <lastmod>2016-03-04T14:51:22-04:00</lastmod>
+      <lastmod>2019-11-13T15:23:32-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -205,7 +228,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/tags/course/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+      <lastmod>2018-02-27T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -241,7 +264,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/tags/scrna/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+      <lastmod>2018-02-27T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -250,7 +273,7 @@
     <url>
     
       <loc>https://kdgosik.netlify.com/tags/workshop/</loc>
-      <lastmod>2016-04-27T00:00:00-04:00</lastmod>
+      <lastmod>2018-02-27T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
