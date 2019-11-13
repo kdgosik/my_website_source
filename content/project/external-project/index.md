@@ -1,5 +1,5 @@
 ---
-date: "2016-04-27T00:00:00-04:00"
+date: "2018-02-27T00:00:00-04:00"
 external_link: https://broadinstitute.github.io/2019_scWorkshop/
 image:
   caption: Physalia Workshop

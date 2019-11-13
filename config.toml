@@ -11,7 +11,7 @@ baseurl = "https://kdgosik.netlify.com/"
 
 # Title of your site
 title = "Kirk Gosik"
-# ORCID - https://orcid.org/0000-0001-7612-2176
+ORCID = "0000-0001-7612-2176"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
