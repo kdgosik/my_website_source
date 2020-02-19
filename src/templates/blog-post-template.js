@@ -3,6 +3,7 @@ import unified from 'unified';
 import markdown from 'remark-parse';
 import html from 'remark-html';
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 // import styled from 'react-emotion';
 import styled from '@emotion/styled';
 import { Box } from '../components/Layout';
@@ -15,8 +16,24 @@ const Back = styled.div`
   bottom: 1.5rem;
 `;
 
-const Template = ({ data }) => {
-  const { airtable: post } = data;
+const Template = () => {
+  const { post: data } = useStaticQuery(graphql`
+    query BlogPostByPath($slug: String!) {
+      airtable(slug: { eq: $slug }) {
+        data {
+          slug
+          title
+          author
+          PostMarkdown
+          image {
+            url
+          }
+          date
+        }
+      }
+    }
+  `);
+
   return (
     <Box>
       <Box
@@ -28,11 +45,11 @@ const Template = ({ data }) => {
         <Back>
           <Link to="/blog">&larr; Blog</Link>
         </Back>
-        <h1>{post.title}</h1>
-        <Timestamp>{post.date}</Timestamp>
-        <h5>Written by {post.author}</h5>
+        <h1>{post.data.title}</h1>
+        <Timestamp>{post.data.date}</Timestamp>
+        <h5>Written by {post.data.author}</h5>
         <img
-          src={post.image[0].url}
+          src={post.data.image[0].url}
           style={{
             display: 'block',
             marginBottom: '1rem',
@@ -55,19 +72,5 @@ const Template = ({ data }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query BlogPostByPath($slug: String!) {
-    airtable(slug: { eq: $slug }) {
-      slug
-      title
-      author
-      PostMarkdown
-      image {
-        url
-      }
-      date
-    }
-  }
-`;
 
 export default Template;

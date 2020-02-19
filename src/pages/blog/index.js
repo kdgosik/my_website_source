@@ -1,16 +1,38 @@
 /* eslint-disable */
+import unified from 'unified';
+import markdown from 'remark-parse';
+import html from 'remark-html';
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Link, Timestamp } from '../../components/Misc';
 import { Box } from '../../components/Layout';
 // import { css } from 'react-emotion';
 import { css } from '@emotion/core';
 
+
 const linkStyles = css`
   box-shadow: none;
 `;
 
-const BlogIndex = ({ data }) => {
-  const { edges: posts } = data.allAirtable;
+const BlogIndex = () => {
+  const { edges: posts } = useStaticQuery(graphql`
+    query BlogQuery {
+      allAirtable {
+        edges {
+          node {
+            slug
+            title
+            PostMarkdown
+            image {
+              url
+            }
+            date
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Box>
       <Box
@@ -21,43 +43,45 @@ const BlogIndex = ({ data }) => {
         <h1>Blog</h1>
         <Box>
           {posts
-            .filter(post => post.node.frontmatter.title.length > 0)
+            .filter(post => post.node.title.length > 0)
             .map(({ node: post }, index) => {
               return (
                 <Box key={post.id}>
-                  <Link to={post.fields.slug} className={linkStyles}>
-                    <Timestamp>{post.frontmatter.date}</Timestamp>
-                    <h3>{post.frontmatter.title}</h3>
-                    <p>{post.excerpt}</p>
-                  </Link>
-                </Box>
-              );
-            })}
+                  <Link to={post.slug} className={linkStyles}>
+                    <Timestamp>{post.date}</Timestamp>
+                    <h3>{post.title}</h3>
+                    <div 
+                    style={{
+                      backgroundImage: 'url(' + post.image[0].url + ')',
+                      backgroundSize: '100%',
+                      backgroundPosition: 'center',
+                      width:'100%', 
+                      height:'15rem' 
+                      }}>
+                    </div>
+                    <p
+                    style={{
+                      marginTop: '1rem',
+                      marginBottom: '2rem',
+                    }}>
+                      <div 
+                      dangerouslySetInnerHTML={{ 
+                      __html: String(unified()
+                      .use(markdown)
+                      .use(html)
+                      .processSync(post.PostMarkdown.split(/\s+/).slice(0,35).join(" ")))
+                      }} /> 
+                    </p>
+                </Link>
+            </Box>
+            );
+          })}
         </Box>
       </Box>
     </Box>
   );
 };
 
-export const pageQuery = graphql`
-  query BlogQuery {
-    allAirtable(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          excerpt(pruneLength: 250)
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
 /* eslint-enable */
 
 export default BlogIndex;

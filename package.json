@@ -24,6 +24,7 @@
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.1",
     "remark-html": "^10.0.0",
+    "remark-parse": "^7.0.2",
     "unified": "^8.4.2"
   },
   "devDependencies": {

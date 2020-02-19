@@ -1,8 +1,9 @@
 const parseFilepath = require('parse-filepath');
 const path = require('path');
 const slash = require('slash');
+const graphql = require('gatsby');
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
+exports.onCreateWebpackConfig = ({ config, stage }) => {
   switch (stage) {
     case 'develop':
       config.preLoader('eslint-loader', {
@@ -17,7 +18,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'airtable') {
     const fileNode = getNode(node.parent);
     const parsedFilePath = parseFilepath(fileNode.relativePath);
 
@@ -35,15 +36,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     resolve(
       graphql(
         `
-        {
-         allAirtable {
-          edges {
-             node {
-               slug
-             }
+          {
+            allAirtable {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
           }
-         }
-        }
       `
       ).then(result => {
         if (result.error) {
