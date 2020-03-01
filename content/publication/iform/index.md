@@ -49,7 +49,7 @@ slides = ""
 tags = []
 
 # Links (optional).
-url_pdf = "files/iform-eqtl.pdf
+url_pdf = "files/iform-eqtl.pdf"
 url_preprint = ""
 url_code = "https://github.com/kdgosik/iForm"
 url_dataset = "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE23857"
