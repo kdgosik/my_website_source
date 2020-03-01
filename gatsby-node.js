@@ -3,18 +3,64 @@ const path = require('path');
 const slash = require('slash');
 const graphql = require('gatsby');
 
-exports.onCreateWebpackConfig = ({ config, stage }) => {
+exports.onCreateWebpackConfig = ({ 
+  stage,
+  actions,
+ }) => {
   switch (stage) {
     case 'develop':
-      config.preLoader('eslint-loader', {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/
+      actions.setWebpackConfig({
+        module: {
+          rules: [
+            {
+              test: /\.(js|jsx)$/,
+              exclude: /node_modules/,
+              use: 'eslint-loader',
+            },
+          ],
+        },
       });
-
-      break;
+    break;
   }
-  return config;
 };
+
+// exports.onCreateWebpackConfig = ({
+//   stage,
+//   rules,
+//   loaders,
+//   plugins,
+//   actions,
+// }) => {
+//   actions.setWebpackConfig({
+//     module: {
+//       rules: [
+//         {
+//           test: /\.less$/,
+//           use: [
+//             // You don't need to add the matching ExtractText plugin
+//             // because gatsby already includes it and makes sure it's only
+//             // run at the appropriate stages, e.g. not in development
+//             loaders.miniCssExtract(),
+//             loaders.css({ importLoaders: 1 }),
+//             // the postcss loader comes with some nice defaults
+//             // including autoprefixer for our configured browsers
+//             loaders.postcss(),
+//             `less-loader`,
+//           ],
+//         },
+//       ],
+//     },
+//     plugins: [
+//       plugins.define({
+//         __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
+//       }),
+//     ],
+//   })
+// }
+
+
+
+
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
@@ -40,7 +86,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             allAirtable {
               edges {
                 node {
-                  slug
+                  data{
+                    slug
+                  }
                 }
               }
             }

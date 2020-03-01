@@ -20,13 +20,15 @@ const BlogIndex = () => {
       allAirtable {
         edges {
           node {
-            slug
-            title
-            PostMarkdown
-            image {
-              url
+            data{
+              slug
+              title
+              PostMarkdown
+              image {
+                url
+              }
+              date
             }
-            date
           }
         }
       }
@@ -43,8 +45,8 @@ const BlogIndex = () => {
         <h1>Blog</h1>
         <Box>
           {posts
-            .filter(post => post.node.title.length > 0)
-            .map(({ node: post }, index) => {
+            .filter(post => post.node.data.title.length > 0)
+            .map(({ node: {data: post } }, index) => {
               return (
                 <Box key={post.id}>
                   <Link to={post.slug} className={linkStyles}>

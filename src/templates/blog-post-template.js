@@ -17,9 +17,9 @@ const Back = styled.div`
 `;
 
 const Template = () => {
-  const { post: data } = useStaticQuery(graphql`
+  const post = useStaticQuery(graphql`
     query BlogPostByPath($slug: String!) {
-      airtable(slug: { eq: $slug }) {
+      airtable(data: {slug: { eq: $slug }}) {
         data {
           slug
           title
