@@ -1,40 +1,23 @@
-/* eslint-disable no-undef, react/prop-types */
-import React from 'react';
-import Img from 'gatsby-image';
-// import { css } from 'react-emotion';
-import { css } from '@emotion/core';
-import { Box } from '../components/Layout';
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
 
-const imgStyle = css`
-  border-radius: 5px;
-  margin-bottom: 1.7rem;
-`;
+export default ({ data }) => (
+  <Layout>
+    <h1>About {data.site.siteMetadata.title}</h1>
+    <p>
+      We're the only site running on your computer dedicated to showing the best
+      photos and videos of pandas eating lots of food.
+    </p>
+  </Layout>
+)
 
-const About = ({ data }) => {
-  const { imageSharp } = data;
-  return (
-    <Box>
-      <Box
-        width={[1, 1, 1 / 2]}
-        m={['3.5rem 0 0 0', '3.5rem 0 0 0', '3.5rem auto 0 auto']}
-        px={[3, 3, 0]}
-      >
-        <h1>About</h1>
-        <Img className={imgStyle} alt="Picture of X" sizes={imageSharp.sizes} />
-        <p>This is an example showing the use of &quot;gatsby-image&quot;.</p>
-      </Box>
-    </Box>
-  );
-};
-
-export const pageQuery = graphql`
-  query AboutQuery {
-    imageSharp(id: { regex: "/about/" }) {
-      sizes(maxWidth: 1000) {
-        ...GatsbyImageSharpSizes
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
       }
     }
   }
-`;
-
-export default About;
+`
